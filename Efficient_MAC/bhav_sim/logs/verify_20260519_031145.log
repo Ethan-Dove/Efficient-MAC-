@@ -1,0 +1,60 @@
+[log] Writing to /home/ray/Dev/ELEC-5160-Proj/Efficient_MAC/bhav_sim/logs/verify_20260519_031145.log
+[compile] Compiling RTL...
+[compile] Done.
+
+[run] 12 batches, ~100000 vectors, 24 parallel workers
+
+  FAIL  flp_boundary_1                  pass=    0  fail= 3500  skip=    0
+  FAIL  flp_boundary_0                  pass=    0  fail= 3500  skip=    0
+  FAIL  flp_cancel_1                    pass=    0  fail= 7000  skip=    0
+  FAIL  flp_cancel_0                    pass=    0  fail= 7000  skip=    0
+  FAIL  flp_add_1                       pass=    0  fail= 9000  skip=    0
+  FAIL  flp_sub_low_1                   pass= 3092  fail= 5908  skip=    0
+  FAIL  flp_sub_low_2                   pass= 3028  fail= 5972  skip=    0
+  FAIL  flp_add_0                       pass=    0  fail= 9000  skip=    0
+  FAIL  flp_sub_high_0                  pass=    0  fail= 9000  skip=    0
+  FAIL  flp_sub_low_0                   pass= 3093  fail= 5907  skip=    0
+  FAIL  fix_random_1                    pass=   92  fail=12408  skip=    0
+  FAIL  fix_random_0                    pass=   90  fail=12410  skip=    0
+
+============================================================
+TOTAL  pass=9395  fail=90605  skip=0
+============================================================
+
+First failures per batch:
+  [flp_boundary_1] FLP idx=0 A=3c00 B=3c00 acc=3f800000: expected=40000000 got=3f800000 (exp_f=2 got_f=1 err=8388608 ULP fp_ref=40000000 f64=40000000)
+  [flp_boundary_1] FLP idx=1 A=3e00 B=3c00 acc=3f000000: expected=40000000 got=3f000000 (exp_f=2 got_f=0.5 err=16777216 ULP fp_ref=40000000 f64=40000000)
+  [flp_boundary_1] FLP idx=2 A=4044 B=db10 acc=c4dc5735: expected=c50c4bda got=c4dc5734 (exp_f=-2244.74 got_f=-1762.73 err=3142822 ULP fp_ref=c50c4bda f64=c50c4bda)
+  [flp_boundary_0] FLP idx=0 A=3c00 B=3c00 acc=3f800000: expected=40000000 got=3f800000 (exp_f=2 got_f=1 err=8388608 ULP fp_ref=40000000 f64=40000000)
+  [flp_boundary_0] FLP idx=1 A=3e00 B=3c00 acc=3f000000: expected=40000000 got=3f000000 (exp_f=2 got_f=0.5 err=16777216 ULP fp_ref=40000000 f64=40000000)
+  [flp_boundary_0] FLP idx=2 A=f0a5 B=5ce3 acc=cbfbde5c: expected=cc094856 got=cbfbde5c (exp_f=-3.59878e+07 got_f=-3.30129e+07 err=879098 ULP fp_ref=cc094856 f64=cc094856)
+  [flp_cancel_1] FLP idx=0 A=1f2c B=6b54 acc=c12974bc: expected=417afec4 got=c12974b8 (exp_f=15.6872 got_f=-10.591 err=2191815548 ULP fp_ref=417afec8 f64=417afec4)
+  [flp_cancel_1] FLP idx=1 A=1f80 B=691e acc=c13b3cff: expected=40ef9602 got=c13b3cf8 (exp_f=7.48706 got_f=-11.7024 err=2183844602 ULP fp_ref=40ef9610 f64=40ef9602)
+  [flp_cancel_1] FLP idx=2 A=6a93 B=46b3 acc=c6417e93: expected=461ed7b5 got=c6417e90 (exp_f=10165.9 got_f=-12383.6 err=2355123781 ULP fp_ref=461ed7b8 f64=461ed7b5)
+  [flp_cancel_0] FLP idx=0 A=3fb0 B=6d88 acc=c5c423f6: expected=4590080a got=c5c423f0 (exp_f=4609 got_f=-6276.49 err=2337549306 ULP fp_ref=45900810 f64=4590080a)
+  [flp_cancel_0] FLP idx=1 A=2e9b B=5197 acc=c03e1327: expected=3fd2a082 got=c03e1320 (exp_f=1.64552 got_f=-2.96992 err=2148578210 ULP fp_ref=3fd2a090 f64=3fd2a082)
+  [flp_cancel_0] FLP idx=2 A=58a6 B=3c91 acc=c3547e13: expected=c22ab78c got=c3547e10 (exp_f=-42.6792 got_f=-212.492 err=19515012 ULP fp_ref=c22ab780 f64=c22ab78c)
+  [flp_add_1] FLP idx=0 A=be78 B=a0fc acc=3a4d9dff: expected=3c876570 got=3a4d9d80 (exp_f=0.0165279 got_f=0.00078436 err=37341168 ULP fp_ref=3c87656c f64=3c876570)
+  [flp_add_1] FLP idx=1 A=8943 B=3dfd acc=b69d6608: expected=b9807e74 got=b69d6600 (exp_f=-0.000245083 got_f=-4.69084e-06 err=48437364 ULP fp_ref=b9807e74 f64=b9807e74)
+  [flp_add_1] FLP idx=2 A=fa6a B=27d1 acc=c6892749: expected=c695afec got=c6892749 (exp_f=-19160 got_f=-17555.6 err=821411 ULP fp_ref=c695afec f64=c695afec)
+  [flp_sub_low_1] FLP idx=0 A=b711 B=46de acc=43d7eda2: expected=43d6696c got=43d7eda2 (exp_f=428.824 got_f=431.857 err=99382 ULP fp_ref=43d6696c f64=43d6696c)
+  [flp_sub_low_1] FLP idx=2 A=21c5 B=78a9 acc=c70256b8: expected=c700a887 got=c70256b8 (exp_f=-32936.5 got_f=-33366.7 err=110129 ULP fp_ref=c700a887 f64=c700a887)
+  [flp_sub_low_1] FLP idx=3 A=9d73 B=9e6f acc=b9dbecce: expected=b9ca6560 got=b9dbecce (exp_f=-0.00038604 got_f=-0.000419474 err=1148782 ULP fp_ref=b9ca6560 f64=b9ca6560)
+  [flp_sub_low_2] FLP idx=0 A=c749 B=5b14 acc=45cd6042: expected=4599cf8e got=45cd6042 (exp_f=4921.94 got_f=6572.03 err=3379380 ULP fp_ref=4599cf8e f64=4599cf8e)
+  [flp_sub_low_2] FLP idx=2 A=6192 B=417d acc=c5a7a88c: expected=c55507f0 got=c5a7a88c (exp_f=-3408.5 got_f=-5365.07 err=5415068 ULP fp_ref=c55507f0 f64=c55507f0)
+  [flp_sub_low_2] FLP idx=5 A=8c24 B=ebbb acc=ca459c3a: expected=ca459c36 got=ca459c3a (exp_f=-3.23765e+06 got_f=-3.23765e+06 err=4 ULP fp_ref=ca459c36 f64=ca459c36)
+  [flp_add_0] FLP idx=0 A=969d B=3096 acc=b84a2122: expected=b992941c got=b84a2120 (exp_f=-0.000279576 got_f=-4.81914e-05 err=21525244 ULP fp_ref=b992941c f64=b992941c)
+  [flp_add_0] FLP idx=1 A=0eef B=48cb acc=3899a567: expected=3b8754aa got=3899a500 (exp_f=0.00412997 got_f=7.32634e-05 err=49131434 ULP fp_ref=3b8754a8 f64=3b8754aa)
+  [flp_add_0] FLP idx=2 A=58c5 B=d128 acc=c667b135: expected=c6a5082a got=c667b134 (exp_f=-21124.1 got_f=-14828.3 err=4019958 ULP fp_ref=c6a5082a f64=c6a5082a)
+  [flp_sub_high_0] FLP idx=0 A=34e6 B=f778 acc=44d2d095: expected=c5effa5b got=44d2d080 (exp_f=-7679.29 got_f=1686.52 err=2328021723 ULP fp_ref=c5effa60 f64=c5effa5b)
+  [flp_sub_high_0] FLP idx=1 A=6112 B=5e34 acc=c4a78377: expected=487a4e39 got=c4a78000 (exp_f=256313 got_f=-1340 err=2367802937 ULP fp_ref=487a4e40 f64=487a4e39)
+  [flp_sub_high_0] FLP idx=2 A=d0b3 B=45e7 acc=3bb81b78: expected=c35de2b8 got=3bb80000 (exp_f=-221.886 got_f=0.00561523 err=2132140728 ULP fp_ref=c35de2b8 f64=c35de2b8)
+  [flp_sub_low_0] FLP idx=0 A=051e B=cb58 acc=45a6e758: expected=45a6e756 got=45a6e758 (exp_f=5340.92 got_f=5340.92 err=2 ULP fp_ref=45a6e756 f64=45a6e756)
+  [flp_sub_low_0] FLP idx=1 A=08d4 B=643f acc=c68df0fa: expected=c68df0a8 got=c68df0fa (exp_f=-18168.3 got_f=-18168.5 err=82 ULP fp_ref=c68df0a8 f64=c68df0a8)
+  [flp_sub_low_0] FLP idx=2 A=463b B=75b4 acc=d1546444: expected=d1546420 got=d1546444 (exp_f=-5.70133e+10 got_f=-5.70135e+10 err=36 ULP fp_ref=d1546420 f64=d1546420)
+  [fix_random_1] FIX idx=0 A=13bd B=9279 acc=76688387: expected=76685bb2 got=76687b5e
+  [fix_random_1] FIX idx=1 A=314c B=e808 acc=994b7a56: expected=994b781e got=994b75be
+  [fix_random_1] FIX idx=2 A=dd62 B=bea7 acc=f362b708: expected=f3629dfc got=f362c00e
+  [fix_random_0] FIX idx=1 A=4771 B=347a acc=00000000: expected=00004446 got=00000e6c
+  [fix_random_0] FIX idx=2 A=6ff1 B=771f acc=8b8148f6: expected=8b817abe got=8b817c90
+  [fix_random_0] FIX idx=3 A=8e6f B=0353 acc=6c307511: expected=6c3097b8 got=6c3073bc

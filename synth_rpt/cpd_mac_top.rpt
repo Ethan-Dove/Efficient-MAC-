@@ -1,0 +1,228 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mac_top
+Version: P-2019.03-SP5
+Date   : Tue May 19 23:07:40 2026
+****************************************
+
+Operating Conditions: NCCOM   Library: tcb018g3d3tc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: float_r1_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: mul_result_r2_reg[23]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mac_top            TSMC128K_Conservative tcb018g3d3tc_ccs
+  merged_multiplier  ZeroWireload          tcb018g3d3tc_ccs
+  booth_multiplier_8x8_dual_0
+                     ZeroWireload          tcb018g3d3tc_ccs
+  merged_multiplier_DW01_add_6
+                     ZeroWireload          tcb018g3d3tc_ccs
+  csa_4to2_16bit     ZeroWireload          tcb018g3d3tc_ccs
+  csa_4to2_16bit_add2
+                     ZeroWireload          tcb018g3d3tc_ccs
+  cla_4bit_3         ZeroWireload          tcb018g3d3tc_ccs
+  cla_16bit          ZeroWireload          tcb018g3d3tc_ccs
+  cla_4bit_2         ZeroWireload          tcb018g3d3tc_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  float_r1_reg/CP (DFCNQD4)                               0.00       2.00 r
+  float_r1_reg/Q (DFCNQD4)                                0.45       2.45 r
+  U270/Z (BUFFD16)                                        0.18       2.62 r
+  U263/Z (MUX2D4)                                         0.27       2.89 r
+  mul_inst/Y[2] (merged_multiplier)                       0.00       2.89 r
+  mul_inst/mult_Z2/B[2] (booth_multiplier_8x8_dual_0)     0.00       2.89 r
+  mul_inst/mult_Z2/U366/ZN (XNR2D2)                       0.27       3.16 f
+  mul_inst/mult_Z2/U260/ZN (INVD3)                        0.08       3.24 r
+  mul_inst/mult_Z2/U192/ZN (ND2D3)                        0.08       3.32 f
+  mul_inst/mult_Z2/U256/ZN (OAI32D0)                      0.27       3.59 r
+  mul_inst/mult_Z2/U350/Z (AO21D2)                        0.24       3.83 r
+  mul_inst/mult_Z2/U484/Z (XOR3D4)                        0.45       4.28 r
+  mul_inst/mult_Z2/sum[3] (booth_multiplier_8x8_dual_0)
+                                                          0.00       4.28 r
+  mul_inst/csa_inst1/in2[3] (csa_4to2_16bit)              0.00       4.28 r
+  mul_inst/csa_inst1/U43/ZN (INVD4)                       0.05       4.33 f
+  mul_inst/csa_inst1/U88/ZN (OAI32D2)                     0.19       4.52 r
+  mul_inst/csa_inst1/U42/ZN (AOI32D2)                     0.16       4.68 f
+  mul_inst/csa_inst1/U65/Z (XOR2D2)                       0.24       4.92 r
+  mul_inst/csa_inst1/sum[4] (csa_4to2_16bit)              0.00       4.92 r
+  mul_inst/U212/Z (XOR2D2)                                0.23       5.15 r
+  mul_inst/csa_inst2/in1[4] (csa_4to2_16bit_add2)         0.00       5.15 r
+  mul_inst/csa_inst2/U58/Z (XOR2D2)                       0.23       5.38 r
+  mul_inst/csa_inst2/U48/ZN (INVD2)                       0.03       5.41 f
+  mul_inst/csa_inst2/U163/ZN (OAI33D1)                    0.32       5.73 r
+  mul_inst/csa_inst2/U165/Z (AO21D2)                      0.21       5.94 r
+  mul_inst/csa_inst2/carry[5] (csa_4to2_16bit_add2)       0.00       5.94 r
+  mul_inst/adder_16bit/B[5] (cla_16bit)                   0.00       5.94 r
+  mul_inst/adder_16bit/cla1/b[1] (cla_4bit_3)             0.00       5.94 r
+  mul_inst/adder_16bit/cla1/U20/ZN (INVD0)                0.06       6.00 f
+  mul_inst/adder_16bit/cla1/U19/ZN (CKND2D1)              0.07       6.08 r
+  mul_inst/adder_16bit/cla1/U3/ZN (ND2D1)                 0.06       6.14 f
+  mul_inst/adder_16bit/cla1/U21/ZN (CKND2D1)              0.07       6.21 r
+  mul_inst/adder_16bit/cla1/U17/ZN (AOI211D1)             0.08       6.29 f
+  mul_inst/adder_16bit/cla1/U34/ZN (AOI211D1)             0.23       6.52 r
+  mul_inst/adder_16bit/cla1/gg (cla_4bit_3)               0.00       6.52 r
+  mul_inst/adder_16bit/U6/ZN (CKND1)                      0.11       6.64 f
+  mul_inst/adder_16bit/U5/ZN (ND2D2)                      0.11       6.75 r
+  mul_inst/adder_16bit/cla2/cin (cla_4bit_2)              0.00       6.75 r
+  mul_inst/adder_16bit/cla2/U54/ZN (CKND2D1)              0.08       6.83 f
+  mul_inst/adder_16bit/cla2/U60/ZN (AOI33D1)              0.18       7.01 r
+  mul_inst/adder_16bit/cla2/U50/ZN (OAI21D1)              0.12       7.13 f
+  mul_inst/adder_16bit/cla2/sum[2] (cla_4bit_2)           0.00       7.13 f
+  mul_inst/adder_16bit/Sum[10] (cla_16bit)                0.00       7.13 f
+  mul_inst/U114/ZN (CKND2)                                0.10       7.23 r
+  mul_inst/U76/ZN (NR2D1)                                 0.09       7.32 f
+  mul_inst/U72/ZN (NR2D3)                                 0.10       7.42 r
+  mul_inst/U178/ZN (CKND2D2)                              0.07       7.49 f
+  mul_inst/U177/ZN (CKND2)                                0.05       7.54 r
+  mul_inst/U188/ZN (CKND2D2)                              0.06       7.60 f
+  mul_inst/U283/ZN (CKND2)                                0.04       7.64 r
+  mul_inst/U301/ZN (ND4D1)                                0.11       7.75 f
+  mul_inst/U55/ZN (IND2D1)                                0.13       7.88 r
+  mul_inst/U284/ZN (OAI21D2)                              0.11       7.99 f
+  mul_inst/U110/ZN (IND2D2)                               0.07       8.06 r
+  mul_inst/U361/ZN (NR2D2)                                0.04       8.10 f
+  mul_inst/U304/ZN (AOI211D2)                             0.24       8.34 r
+  mul_inst/result[23] (merged_multiplier)                 0.00       8.34 r
+  mul_result_r2_reg[23]/D (DFCND4)                        0.00       8.34 r
+  data arrival time                                                  8.34
+
+  clock clk (rise edge)                                   6.00       6.00
+  clock network delay (ideal)                             0.00       6.00
+  mul_result_r2_reg[23]/CP (DFCND4)                       0.00       6.00 r
+  library setup time                                     -0.03       5.97
+  data required time                                                 5.97
+  --------------------------------------------------------------------------
+  data required time                                                 5.97
+  data arrival time                                                 -8.34
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -2.37
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mac_top
+Version: P-2019.03-SP5
+Date   : Tue May 19 23:17:05 2026
+****************************************
+
+Operating Conditions: NCCOM   Library: tcb018g3d3tc_ccs
+Wire Load Model Mode: segmented
+
+  Startpoint: float_r1_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: mul_result_r2_reg[23]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mac_top            TSMC128K_Conservative tcb018g3d3tc_ccs
+  merged_multiplier  ZeroWireload          tcb018g3d3tc_ccs
+  booth_multiplier_8x8_dual_0
+                     ZeroWireload          tcb018g3d3tc_ccs
+  merged_multiplier_DW01_add_6
+                     ZeroWireload          tcb018g3d3tc_ccs
+  csa_4to2_16bit     ZeroWireload          tcb018g3d3tc_ccs
+  csa_4to2_16bit_add2
+                     ZeroWireload          tcb018g3d3tc_ccs
+  cla_4bit_3         ZeroWireload          tcb018g3d3tc_ccs
+  cla_16bit          ZeroWireload          tcb018g3d3tc_ccs
+  cla_4bit_2         ZeroWireload          tcb018g3d3tc_ccs
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  float_r1_reg/CP (DFCNQD4)                               0.00       2.00 r
+  float_r1_reg/Q (DFCNQD4)                                0.45       2.45 r
+  U270/Z (BUFFD16)                                        0.18       2.62 r
+  U263/Z (MUX2D4)                                         0.27       2.89 r
+  mul_inst/Y[2] (merged_multiplier)                       0.00       2.89 r
+  mul_inst/mult_Z2/B[2] (booth_multiplier_8x8_dual_0)     0.00       2.89 r
+  mul_inst/mult_Z2/U366/ZN (XNR2D2)                       0.27       3.16 f
+  mul_inst/mult_Z2/U260/ZN (INVD3)                        0.08       3.24 r
+  mul_inst/mult_Z2/U192/ZN (ND2D3)                        0.08       3.32 f
+  mul_inst/mult_Z2/U256/ZN (OAI32D0)                      0.27       3.59 r
+  mul_inst/mult_Z2/U350/Z (AO21D2)                        0.24       3.83 r
+  mul_inst/mult_Z2/U484/Z (XOR3D4)                        0.45       4.28 r
+  mul_inst/mult_Z2/sum[3] (booth_multiplier_8x8_dual_0)
+                                                          0.00       4.28 r
+  mul_inst/csa_inst1/in2[3] (csa_4to2_16bit)              0.00       4.28 r
+  mul_inst/csa_inst1/U43/ZN (INVD4)                       0.05       4.33 f
+  mul_inst/csa_inst1/U88/ZN (OAI32D2)                     0.19       4.52 r
+  mul_inst/csa_inst1/U42/ZN (AOI32D2)                     0.16       4.68 f
+  mul_inst/csa_inst1/U65/Z (XOR2D2)                       0.24       4.92 r
+  mul_inst/csa_inst1/sum[4] (csa_4to2_16bit)              0.00       4.92 r
+  mul_inst/U212/Z (XOR2D2)                                0.23       5.15 r
+  mul_inst/csa_inst2/in1[4] (csa_4to2_16bit_add2)         0.00       5.15 r
+  mul_inst/csa_inst2/U58/Z (XOR2D2)                       0.23       5.38 r
+  mul_inst/csa_inst2/U48/ZN (INVD2)                       0.03       5.41 f
+  mul_inst/csa_inst2/U163/ZN (OAI33D1)                    0.32       5.73 r
+  mul_inst/csa_inst2/U165/Z (AO21D2)                      0.21       5.94 r
+  mul_inst/csa_inst2/carry[5] (csa_4to2_16bit_add2)       0.00       5.94 r
+  mul_inst/adder_16bit/B[5] (cla_16bit)                   0.00       5.94 r
+  mul_inst/adder_16bit/cla1/b[1] (cla_4bit_3)             0.00       5.94 r
+  mul_inst/adder_16bit/cla1/U20/ZN (INVD0)                0.06       6.00 f
+  mul_inst/adder_16bit/cla1/U19/ZN (CKND2D1)              0.07       6.08 r
+  mul_inst/adder_16bit/cla1/U3/ZN (ND2D1)                 0.06       6.14 f
+  mul_inst/adder_16bit/cla1/U21/ZN (CKND2D1)              0.07       6.21 r
+  mul_inst/adder_16bit/cla1/U17/ZN (AOI211D1)             0.08       6.29 f
+  mul_inst/adder_16bit/cla1/U34/ZN (AOI211D1)             0.23       6.52 r
+  mul_inst/adder_16bit/cla1/gg (cla_4bit_3)               0.00       6.52 r
+  mul_inst/adder_16bit/U6/ZN (CKND1)                      0.11       6.64 f
+  mul_inst/adder_16bit/U5/ZN (ND2D2)                      0.11       6.75 r
+  mul_inst/adder_16bit/cla2/cin (cla_4bit_2)              0.00       6.75 r
+  mul_inst/adder_16bit/cla2/U54/ZN (CKND2D1)              0.08       6.83 f
+  mul_inst/adder_16bit/cla2/U60/ZN (AOI33D1)              0.18       7.01 r
+  mul_inst/adder_16bit/cla2/U50/ZN (OAI21D1)              0.12       7.13 f
+  mul_inst/adder_16bit/cla2/sum[2] (cla_4bit_2)           0.00       7.13 f
+  mul_inst/adder_16bit/Sum[10] (cla_16bit)                0.00       7.13 f
+  mul_inst/U114/ZN (CKND2)                                0.10       7.23 r
+  mul_inst/U76/ZN (NR2D1)                                 0.09       7.32 f
+  mul_inst/U72/ZN (NR2D3)                                 0.10       7.42 r
+  mul_inst/U178/ZN (CKND2D2)                              0.07       7.49 f
+  mul_inst/U177/ZN (CKND2)                                0.05       7.54 r
+  mul_inst/U188/ZN (CKND2D2)                              0.06       7.60 f
+  mul_inst/U283/ZN (CKND2)                                0.04       7.64 r
+  mul_inst/U301/ZN (ND4D1)                                0.11       7.75 f
+  mul_inst/U55/ZN (IND2D1)                                0.13       7.88 r
+  mul_inst/U284/ZN (OAI21D2)                              0.11       7.99 f
+  mul_inst/U110/ZN (IND2D2)                               0.07       8.06 r
+  mul_inst/U361/ZN (NR2D2)                                0.04       8.10 f
+  mul_inst/U304/ZN (AOI211D2)                             0.24       8.34 r
+  mul_inst/result[23] (merged_multiplier)                 0.00       8.34 r
+  mul_result_r2_reg[23]/D (DFCND4)                        0.00       8.34 r
+  data arrival time                                                  8.34
+
+  clock clk (rise edge)                                   6.00       6.00
+  clock network delay (ideal)                             0.00       6.00
+  mul_result_r2_reg[23]/CP (DFCND4)                       0.00       6.00 r
+  library setup time                                     -0.03       5.97
+  data required time                                                 5.97
+  --------------------------------------------------------------------------
+  data required time                                                 5.97
+  data arrival time                                                 -8.34
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -2.37
+
+
+1

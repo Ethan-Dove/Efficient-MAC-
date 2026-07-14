@@ -1,0 +1,3 @@
+#!/bin/sh
+vcs -full64 ../rtl/efficient_mac.v ../rtl/stim.v +v2k -debug_all -top stim -timescale=1ns/1ps
+./simv -ucli

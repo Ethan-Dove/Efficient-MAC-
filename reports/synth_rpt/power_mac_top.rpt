@@ -1,0 +1,98 @@
+Loading db file '/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3tc_ccs.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : mac_top
+Version: P-2019.03-SP5
+Date   : Tue May 19 23:17:06 2026
+****************************************
+
+
+Library(s) Used:
+
+    tcb018g3d3tc_ccs (File: /usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3tc_ccs.db)
+
+
+Operating Conditions: NCCOM   Library: tcb018g3d3tc_ccs
+Wire Load Model Mode: segmented
+
+Design        Wire Load Model            Library
+------------------------------------------------
+mac_top                TSMC128K_Conservative
+                                         tcb018g3d3tc_ccs
+input_processing       ZeroWireload      tcb018g3d3tc_ccs
+invert_control         ZeroWireload      tcb018g3d3tc_ccs
+invert_addend          ZeroWireload      tcb018g3d3tc_ccs
+align_control          ZeroWireload      tcb018g3d3tc_ccs
+align_shifter          ZeroWireload      tcb018g3d3tc_ccs
+merged_multiplier      ZeroWireload      tcb018g3d3tc_ccs
+incrementer            ZeroWireload      tcb018g3d3tc_ccs
+cin_gen                ZeroWireload      tcb018g3d3tc_ccs
+carry_propagate_adder  ZeroWireload      tcb018g3d3tc_ccs
+complementer           ZeroWireload      tcb018g3d3tc_ccs
+lza_lzc                ZeroWireload      tcb018g3d3tc_ccs
+normalization_shifter  ZeroWireload      tcb018g3d3tc_ccs
+rounder                ZeroWireload      tcb018g3d3tc_ccs
+booth_multiplier_8x8_dual_0
+                       ZeroWireload      tcb018g3d3tc_ccs
+csa_4to2_16bit         ZeroWireload      tcb018g3d3tc_ccs
+csa_4to2_16bit_add2    ZeroWireload      tcb018g3d3tc_ccs
+cla_16bit              ZeroWireload      tcb018g3d3tc_ccs
+cla_4bit_0             ZeroWireload      tcb018g3d3tc_ccs
+booth_multiplier_8x8_dual_1
+                       ZeroWireload      tcb018g3d3tc_ccs
+cla_4bit_1             ZeroWireload      tcb018g3d3tc_ccs
+cla_4bit_2             ZeroWireload      tcb018g3d3tc_ccs
+cla_4bit_3             ZeroWireload      tcb018g3d3tc_ccs
+align_shifter_DW01_ash_2
+                       ZeroWireload      tcb018g3d3tc_ccs
+normalization_shifter_DW01_ash_1
+                       ZeroWireload      tcb018g3d3tc_ccs
+carry_propagate_adder_DW01_add_1
+                       ZeroWireload      tcb018g3d3tc_ccs
+merged_multiplier_DW01_add_6
+                       ZeroWireload      tcb018g3d3tc_ccs
+align_shifter_DW01_dec_2
+                       ZeroWireload      tcb018g3d3tc_ccs
+complementer_DW01_inc_2
+                       ZeroWireload      tcb018g3d3tc_ccs
+incrementer_DW01_inc_1 ZeroWireload      tcb018g3d3tc_ccs
+rounder_DW01_add_4     ZeroWireload      tcb018g3d3tc_ccs
+normalization_shifter_DW01_sub_1
+                       ZeroWireload      tcb018g3d3tc_ccs
+
+
+Global Operating Voltage = 3.3  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  72.9338 mW   (85%)
+  Net Switching Power  =  12.7105 mW   (15%)
+                         ---------
+Total Dynamic Power    =  85.6443 mW  (100%)
+
+Cell Leakage Power     = 460.8060 nW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register          56.7273            1.3983           66.8405           58.1256  (  67.87%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational     16.2066           11.3122          393.9655           27.5191  (  32.13%)
+--------------------------------------------------------------------------------------------------
+Total             72.9338 mW        12.7105 mW       460.8060 nW        85.6448 mW
+1

@@ -1,0 +1,5 @@
+#!/bin/sh
+dump -add .
+run 400000
+quit
+

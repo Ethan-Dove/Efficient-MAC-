@@ -1,0 +1,2 @@
+#!/bin/sh
+dve -full64 -vpd inter.vpd

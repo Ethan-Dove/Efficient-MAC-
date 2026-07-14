@@ -1,0 +1,53 @@
+[log] Writing to /home/ray/Dev/ELEC-5160-Proj/Efficient_MAC/bhav_sim/logs/verify_20260519_171544.log
+[compile] Using existing /tmp/mac_par_sim
+
+[run] 12 batches, ~100000 vectors, 24 parallel workers
+
+  FAIL  flp_boundary_0                  pass= 1560  fail= 1940  skip=    0
+  FAIL  flp_boundary_1                  pass= 1561  fail= 1939  skip=    0
+  FAIL  flp_cancel_0                    pass=  857  fail= 6143  skip=    0
+  FAIL  flp_sub_high_0                  pass=  945  fail= 8055  skip=    0
+  FAIL  flp_cancel_1                    pass=  862  fail= 6138  skip=    0
+  FAIL  flp_sub_low_1                   pass= 8615  fail=  385  skip=    0
+  PASS  fix_random_1                    pass=12500  fail=    0  skip=    0
+  FAIL  flp_add_0                       pass= 4010  fail= 4990  skip=    0
+  FAIL  flp_add_1                       pass= 4042  fail= 4958  skip=    0
+  PASS  fix_random_0                    pass=12500  fail=    0  skip=    0
+  FAIL  flp_sub_low_2                   pass= 8642  fail=  358  skip=    0
+  FAIL  flp_sub_low_0                   pass= 8597  fail=  403  skip=    0
+
+============================================================
+TOTAL  pass=64691  fail=35309  skip=0
+============================================================
+
+First failures per batch:
+  [flp_boundary_0] FLP idx=3 A=845c B=f5aa acc=3e28bde8: expected=3fdaa07d got=3fdaa078 (exp_f=1.70802 got_f=1.70802 err=5 ULP fp_ref=3fdaa078 f64=3fdaa07d)
+  [flp_boundary_0] FLP idx=5 A=380f B=9e5f acc=b928b471: expected=bb5967cf got=bb5967c8 (exp_f=-0.00331734 got_f=-0.00331734 err=7 ULP fp_ref=bb5967c8 f64=bb5967cf)
+  [flp_boundary_0] FLP idx=6 A=1d86 B=d003 acc=bdfd1249: expected=be97e6da got=be97e6d8 (exp_f=-0.296683 got_f=-0.296683 err=2 ULP fp_ref=be97e6d8 f64=be97e6da)
+  [flp_boundary_1] FLP idx=3 A=edda B=76ed acc=ca2b56bb: expected=cd24c8a3 got=cd24c8a0 (exp_f=-1.72788e+08 got_f=-1.72788e+08 err=3 ULP fp_ref=cd24c8a0 f64=cd24c8a3)
+  [flp_boundary_1] FLP idx=4 A=a169 B=70c1 acc=c02b531e: expected=c2d31be1 got=c2d31be0 (exp_f=-105.554 got_f=-105.554 err=1 ULP fp_ref=c2d31be0 f64=c2d31be1)
+  [flp_boundary_1] FLP idx=5 A=1d54 B=b870 acc=ba3a939b: expected=bb6bcae7 got=bb6bcae0 (exp_f=-0.00359791 got_f=-0.00359791 err=7 ULP fp_ref=bb6bcae0 f64=bb6bcae7)
+  [flp_cancel_0] FLP idx=0 A=3fb0 B=6d88 acc=c5c423f6: expected=4590080a got=45900810 (exp_f=4609 got_f=4609.01 err=6 ULP fp_ref=45900810 f64=4590080a)
+  [flp_cancel_0] FLP idx=1 A=2e9b B=5197 acc=c03e1327: expected=3fd2a082 got=3fd2a090 (exp_f=1.64552 got_f=1.64552 err=14 ULP fp_ref=3fd2a090 f64=3fd2a082)
+  [flp_cancel_0] FLP idx=2 A=58a6 B=3c91 acc=c3547e13: expected=c22ab78c got=c22ab780 (exp_f=-42.6792 got_f=-42.6792 err=12 ULP fp_ref=c22ab780 f64=c22ab78c)
+  [flp_sub_high_0] FLP idx=0 A=34e6 B=f778 acc=44d2d095: expected=c5effa5b got=c5effa60 (exp_f=-7679.29 got_f=-7679.3 err=5 ULP fp_ref=c5effa60 f64=c5effa5b)
+  [flp_sub_high_0] FLP idx=1 A=6112 B=5e34 acc=c4a78377: expected=487a4e39 got=487a4e40 (exp_f=256313 got_f=256313 err=7 ULP fp_ref=487a4e40 f64=487a4e39)
+  [flp_sub_high_0] FLP idx=3 A=b336 B=9fd7 acc=b89880de: expected=3ad8995a got=3ad8995c (exp_f=0.00165252 got_f=0.00165252 err=2 ULP fp_ref=3ad8995c f64=3ad8995a)
+  [flp_cancel_1] FLP idx=0 A=1f2c B=6b54 acc=c12974bc: expected=417afec4 got=417afec8 (exp_f=15.6872 got_f=15.6872 err=4 ULP fp_ref=417afec8 f64=417afec4)
+  [flp_cancel_1] FLP idx=1 A=1f80 B=691e acc=c13b3cff: expected=40ef9602 got=40ef9610 (exp_f=7.48706 got_f=7.48707 err=14 ULP fp_ref=40ef9610 f64=40ef9602)
+  [flp_cancel_1] FLP idx=2 A=6a93 B=46b3 acc=c6417e93: expected=461ed7b5 got=461ed7b8 (exp_f=10165.9 got_f=10165.9 err=3 ULP fp_ref=461ed7b8 f64=461ed7b5)
+  [flp_sub_low_1] FLP idx=87 A=26eb B=4cfc acc=c78d51ef: expected=c78d51aa got=c78d518c (exp_f=-72355.3 got_f=-72355.1 err=30 ULP fp_ref=c78d51aa f64=c78d51aa)
+  [flp_sub_low_1] FLP idx=100 A=afff B=c722 acc=c7ceab30: expected=c7ceaabe got=c7cea910 (exp_f=-105813 got_f=-105810 err=430 ULP fp_ref=c7ceaabe f64=c7ceaabe)
+  [flp_sub_low_1] FLP idx=172 A=23fe B=decc acc=4cc7bf66: expected=4cc7bf65 got=4cc7bf64 (exp_f=1.04725e+08 got_f=1.04725e+08 err=1 ULP fp_ref=4cc7bf65 f64=4cc7bf65)
+  [flp_add_0] FLP idx=1 A=0eef B=48cb acc=3899a567: expected=3b8754aa got=3b8754a8 (exp_f=0.00412997 got_f=0.00412996 err=2 ULP fp_ref=3b8754a8 f64=3b8754aa)
+  [flp_add_0] FLP idx=3 A=896b B=ab5f acc=3628b765: expected=3749ecad got=3749ecac (exp_f=1.20356e-05 got_f=1.20356e-05 err=1 ULP fp_ref=3749ecac f64=3749ecad)
+  [flp_add_0] FLP idx=4 A=4b58 B=0c1d acc=3ad0bfeb: expected=3bad03db got=3bad03d8 (exp_f=0.00528 got_f=0.00528 err=3 ULP fp_ref=3bad03d8 f64=3bad03db)
+  [flp_add_1] FLP idx=0 A=be78 B=a0fc acc=3a4d9dff: expected=3c876570 got=3da3d95b (exp_f=0.0165279 got_f=0.0800044 err=18641899 ULP fp_ref=3c87656c f64=3c876570)
+  [flp_add_1] FLP idx=1 A=8943 B=3dfd acc=b69d6608: expected=b9807e74 got=bad81f9d (exp_f=-0.000245083 got_f=-0.00164889 err=22520105 ULP fp_ref=b9807e74 f64=b9807e74)
+  [flp_add_1] FLP idx=4 A=ce75 B=343e acc=bf0ea43d: expected=c0ecf738 got=c0ecf730 (exp_f=-7.40518 got_f=-7.40517 err=8 ULP fp_ref=c0ecf730 f64=c0ecf738)
+  [flp_sub_low_2] FLP idx=8 A=0c7d B=a4ff acc=407f3841: expected=407f382b got=407f37ac (exp_f=3.9878 got_f=3.98777 err=127 ULP fp_ref=407f382b f64=407f382b)
+  [flp_sub_low_2] FLP idx=30 A=aafe B=6c0c acc=4909995e: expected=49098b38 got=49091338 (exp_f=563380 got_f=561460 err=30720 ULP fp_ref=49098b38 f64=49098b38)
+  [flp_sub_low_2] FLP idx=45 A=69ff B=d98c acc=512dd7d6: expected=512dd751 got=512dd595 (exp_f=4.66651e+10 got_f=4.66633e+10 err=444 ULP fp_ref=512dd751 f64=512dd751)
+  [flp_sub_low_0] FLP idx=35 A=f147 B=92fc acc=cc54acd9: expected=cc54acd7 got=cc54accb (exp_f=-5.57515e+07 got_f=-5.57515e+07 err=12 ULP fp_ref=cc54acd7 f64=cc54acd7)
+  [flp_sub_low_0] FLP idx=57 A=dd91 B=cefc acc=d2a703ba: expected=d2a703ba got=d2a703b9 (exp_f=-3.58661e+11 got_f=-3.58661e+11 err=1 ULP fp_ref=d2a703ba f64=d2a703ba)
+  [flp_sub_low_0] FLP idx=58 A=ee61 B=2cfd acc=4b781cb7: expected=4b781aba got=4b78112a (exp_f=1.62598e+07 got_f=1.62573e+07 err=2448 ULP fp_ref=4b781aba f64=4b781aba)

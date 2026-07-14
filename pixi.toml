@@ -1,0 +1,20 @@
+[workspace]
+authors = ["frieddeli <rayshao2002@gmail.com>"]
+channels = ["conda-forge"]
+name = "ELEC-5160-Proj"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+sim = { cmd = "iverilog -g2001 -o Efficient_MAC/bhav_sim/simv_local Efficient_MAC/rtl/efficient_mac.v Efficient_MAC/rtl/stim.v && vvp Efficient_MAC/bhav_sim/simv_local", description = "Compile and run RTL simulation with iverilog/vvp" }
+verify = { cmd = "iverilog -g2001 -o /tmp/mac_standalone Efficient_MAC/bhav_sim/tb_mac_top_standalone.v Efficient_MAC/rtl/*.v && vvp /tmp/mac_standalone +no_vcd", description = "Standalone self-checking testbench (RTL)" }
+demo = { cmd = "python scripts/mac_demo.py", description = "Launch the MAC RTL correctness & pipeline signal demo" }
+demo-auto = { cmd = "python scripts/mac_demo.py --auto", description = "Launch demo with auto-cycling vectors" }
+wave = { cmd = "gtkwave Efficient_MAC/bhav_sim/dump.vcd", description = "Open waveform dump in GTKWave" }
+parallel-verify = { cmd = "python scripts/parallel_verify.py", description = "Run parallel verification framework across MAC testbenches" }
+
+[dependencies]
+iverilog = "*"
+gtkwave = "*"
+rich = "*"
+matplotlib = "*"
