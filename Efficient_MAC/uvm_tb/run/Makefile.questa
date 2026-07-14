@@ -1,0 +1,83 @@
+# Questa Intel FPGA Starter Edition — UVM 1.2 simulation Makefile
+# Usage:
+#   make -f Makefile.questa lib       -- compile UVM 1.2 library (once)
+#   make -f Makefile.questa compile   -- compile RTL + UVM TB
+#   make -f Makefile.questa sim_directed
+#   make -f Makefile.questa sim_random
+#   make -f Makefile.questa sim_corner
+#   make -f Makefile.questa sim_all
+#   make -f Makefile.questa clean
+
+QUESTA_BIN := /home/ray/altera_pro/26.1/questa_fe/linux_x86_64
+UVM_SRC    := /home/ray/altera_pro/26.1/questa_fe/verilog_src/uvm-1.2/src
+UVM_DPI    := /home/ray/altera_pro/26.1/questa_fe/uvm-1.2/linux_x86_64/uvm_dpi
+
+LIC1 := /home/ray/Downloads/LR-164972_License.dat
+LIC2 := /home/ray/Downloads/LR-164971_License.dat
+LIC3 := /home/ray/Downloads/LR-164952_License.dat
+export MGLS_LICENSE_FILE := $(LIC1):$(LIC2):$(LIC3)
+TBDIR      := ..
+
+VLOG       := $(QUESTA_BIN)/vlog
+VSIM       := $(QUESTA_BIN)/vsim
+VLIB       := $(QUESTA_BIN)/vlib
+VMAP       := $(QUESTA_BIN)/vmap
+
+VLOG_FLAGS := -sv \
+              +incdir+$(UVM_SRC) \
+              +incdir+$(TBDIR) \
+              +incdir+$(TBDIR)/seq_items \
+              +incdir+$(TBDIR)/sequences \
+              +incdir+$(TBDIR)/agent \
+              +incdir+$(TBDIR)/env \
+              +incdir+$(TBDIR)/tests \
+              -suppress 2167,2263,2388
+
+# NOTE: Questa Intel FPGA Starter Edition (FSE) does NOT include the
+# 'svverification' license feature required for randomize() and covergroup.
+# This Makefile is provided for completeness but UVM simulation requires
+# either the full Questa license or the university VCS server.
+# See Makefile (VCS) for the working simulation flow.
+VSIM_BASE  := $(VSIM) -L uvm_lib work.tb_top \
+              -sv_lib $(UVM_DPI) \
+              +UVM_VERBOSITY=UVM_LOW \
+              -do "run -all; quit -f" \
+              -quiet
+
+.PHONY: lib compile sim_directed sim_random sim_corner sim_all clean
+
+# Compile UVM 1.2 into its own library (only needs to run once)
+lib:
+	$(VLIB) work
+	$(VLIB) uvm_lib
+	$(VMAP) uvm_lib uvm_lib
+	$(VLOG) -sv +incdir+$(UVM_SRC) $(UVM_SRC)/uvm_pkg.sv \
+	    -work uvm_lib 2>&1 | tee uvm_lib.log
+	@echo "UVM 1.2 library compiled."
+
+# Compile RTL + UVM TB into work library
+compile:
+	$(VLOG) $(VLOG_FLAGS) -L uvm_lib -f filelist.f 2>&1 | tee compile.log
+	@echo "Compilation done — check compile.log for warnings."
+
+sim_directed: compile
+	$(VSIM_BASE) +UVM_TESTNAME=mac_directed_test \
+	    2>&1 | tee directed.log
+
+sim_random: compile
+	$(VSIM_BASE) +UVM_TESTNAME=mac_random_test \
+	    -sv_seed random \
+	    2>&1 | tee random.log
+
+sim_corner: compile
+	$(VSIM_BASE) +UVM_TESTNAME=mac_corner_test \
+	    2>&1 | tee corner.log
+
+sim_all: compile
+	$(VSIM_BASE) +UVM_TESTNAME=mac_directed_test 2>&1 | tee directed.log
+	$(VSIM_BASE) +UVM_TESTNAME=mac_corner_test   2>&1 | tee corner.log
+	$(VSIM_BASE) +UVM_TESTNAME=mac_random_test -sv_seed random \
+	    2>&1 | tee random.log
+
+clean:
+	rm -rf work uvm_lib modelsim.ini transcript *.log *.wlf

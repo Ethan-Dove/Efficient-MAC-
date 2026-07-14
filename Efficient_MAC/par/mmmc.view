@@ -1,0 +1,18 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+create_rc_corner -name rc_cmax -cap_table {/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018gbwp7t/Rev290a/Back_End/lef/tcb018gbwp7t_270a/techfiles/captable/t018lo_1p6m_typical.captable} -preRoute_res {1.1} -preRoute_cap {1.1} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.1} -postRoute_cap {1.1} -postRoute_xcap {1.2} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+create_rc_corner -name rc_rcmax -cap_table {/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018gbwp7t/Rev290a/Back_End/lef/tcb018gbwp7t_270a/techfiles/captable/t018lo_1p6m_typical.captable} -preRoute_res {1.1} -preRoute_cap {1.1} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.1} -postRoute_cap {1.1} -postRoute_xcap {1.2} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+create_rc_corner -name rc_cmin -cap_table {/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018gbwp7t/Rev290a/Back_End/lef/tcb018gbwp7t_270a/techfiles/captable/t018lo_1p6m_typical.captable} -preRoute_res {1.1} -preRoute_cap {1.1} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.1} -postRoute_cap {1.1} -postRoute_xcap {1.2} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+create_rc_corner -name rc_rcmin -cap_table {/usr/eelocal/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018gbwp7t/Rev290a/Back_End/lef/tcb018gbwp7t_270a/techfiles/captable/t018lo_1p6m_typical.captable} -preRoute_res {1.1} -preRoute_cap {1.1} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.1} -postRoute_cap {1.1} -postRoute_xcap {1.2} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+create_library_set -name lib_fast -timing {/dfs/app/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3bc_ccs.lib}
+create_library_set -name lib_slow -timing {/dfs/app/tsmc_icdc/tsmc180/tsmc180_MS_RF_G/SC/tcb018g3d3/Rev280a/Front_End/timing_power_noise/CCS/tcb018g3d3_280a/tcb018g3d3wc_ccs.lib}
+create_constraint_mode -name common -sdc_files {../net/UD_Counter.sdc}
+create_delay_corner -name corner_cmax -library_set {lib_slow} -rc_corner {rc_cmax}
+create_delay_corner -name corner_rcmax -library_set {lib_slow} -rc_corner {rc_rcmax}
+create_delay_corner -name corner_cmin -library_set {lib_fast} -rc_corner {rc_cmin}
+create_delay_corner -name corner_rcmin -library_set {lib_fast} -rc_corner {rc_rcmin}
+create_analysis_view -name view_setup_cmax -constraint_mode {common} -delay_corner {corner_cmax}
+create_analysis_view -name view_setup_rcmax -constraint_mode {common} -delay_corner {corner_rcmax}
+create_analysis_view -name view_hold_cmin -constraint_mode {common} -delay_corner {corner_cmin}
+create_analysis_view -name view_hold_rcmin -constraint_mode {common} -delay_corner {corner_rcmin}
+set_analysis_view -setup {view_setup_cmax view_setup_rcmax} -hold {view_hold_cmin view_hold_rcmin}
